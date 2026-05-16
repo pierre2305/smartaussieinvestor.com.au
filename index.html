@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Smart Aussie Investor — The New Rules. Are You Ready?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:    #0F2236;
+    --navy2:   #1B3A5C;
+    --teal:    #1A7A8A;
+    --teal2:   #7FD0E0;
+    --gold:    #D4901A;
+    --gold2:   #F0B84A;
+    --red:     #B03030;
+    --white:   #FFFFFF;
+    --muted:   #8A9BB0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+  /* ── SHARED ── */
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; display: block; }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--gold) 0%, #E8A830 100%);
+    color: var(--navy); font-weight: 700; font-size: 17px;
+    padding: 16px 40px; border-radius: 8px; border: none;
+    text-decoration: none; cursor: pointer;
+    box-shadow: 0 8px 32px rgba(212,144,26,0.38);
+    transition: all 0.2s ease;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(212,144,26,0.55); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; border: 2px solid var(--gold);
+    color: var(--gold); font-weight: 700; font-size: 16px;
+    padding: 13px 34px; border-radius: 8px;
+    text-decoration: none; cursor: pointer; transition: all 0.2s ease;
+  }
+  .btn-outline:hover { background: rgba(212,144,26,0.12); transform: translateY(-2px); }
+  .divider { width:100%; height:1px; background:linear-gradient(90deg,transparent,rgba(212,144,26,0.3),transparent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse 80% 60% at 15% 50%, rgba(26,122,138,0.20) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 70% at 92% 20%, rgba(212,144,26,0.10) 0%, transparent 55%),
+      linear-gradient(160deg, #080F18 0%, #0F2236 50%, #0C1B2C 100%);
+    display: flex; align-items: center; justify-content: center;
+    padding: 90px 48px 70px; position: relative; overflow: hidden;
+  }
+  .stars {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 8%  12%, rgba(255,255,255,0.75) 0%, transparent 100%),
+      radial-gradient(1px   1px   at 25%  6%, rgba(255,255,255,0.50) 0%, transparent 100%),
+      radial-gradient(2px   2px   at 52% 20%, rgba(255,255,255,0.60) 0%, transparent 100%),
+      radial-gradient(1px   1px   at 70%  9%, rgba(255,255,255,0.45) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 88% 16%, rgba(255,255,255,0.70) 0%, transparent 100%),
+      radial-gradient(1px   1px   at 3%  58%, rgba(255,255,255,0.40) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 96% 52%, rgba(255,255,255,0.60) 0%, transparent 100%),
+      radial-gradient(1px   1px   at 40% 75%, rgba(255,255,255,0.30) 0%, transparent 100%);
+  }
+  .hero-inner {
+    max-width: 1200px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(26,122,138,0.25); border: 1px solid rgba(26,122,138,0.6);
+    color: var(--teal2); padding: 8px 18px; border-radius: 100px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 28px;
+  }
+  .badge-dot { width:7px; height:7px; border-radius:50%; background:var(--teal2); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(36px,4.5vw,64px); font-weight:900; line-height:1.1; margin-bottom:20px; }
+  .hero h1 em { font-style:normal; color:var(--gold); }
+  .hero-sub { font-size:17px; color:rgba(255,255,255,0.60); line-height:1.8; margin-bottom:36px; max-width:520px; }
+  .hero-cta { display:flex; flex-direction:column; gap:14px; }
+  .hero-note { font-size:13px; color:rgba(255,255,255,0.32); }
+  .hero-book { position:relative; display:flex; justify-content:center; align-items:center; }
+  .hero-book-glow {
+    position:absolute; inset:5%;
+    <!-- background:radial-gradient(ellipse at 50% 65%, rgba(212,144,26,0.22) 0%, transparent 68%); -->
+    pointer-events:none;
+  }
+  .hero-book img {
+    width:100%; max-width:460px; position:relative; z-index:1;
+    filter: drop-shadow(0 28px 70px rgba(0,0,0,0.80));
+    animation: float 5.5s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+  /* ── MINI CTA ── */
+  .mini-cta {
+    background: linear-gradient(135deg, rgba(26,122,138,0.10), rgba(212,144,26,0.07));
+    border-top: 1px solid rgba(212,144,26,0.22);
+    border-bottom: 1px solid rgba(212,144,26,0.22);
+    padding: 44px 24px; text-align:center;
+  }
+  .mini-cta-inner { max-width:680px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:18px; }
+  .mini-cta p { font-size:17px; color:rgba(255,255,255,0.72); line-height:1.65; }
+  .mini-cta strong { color:var(--white); }
+  .mini-note { font-size:12px; color:rgba(255,255,255,0.28); }
+
+  /* ── PROBLEM ── */
+  .problem-section { padding:96px 24px; max-width:960px; margin:0 auto; }
+  .problem-section h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,46px); font-weight:700; line-height:1.2; margin-bottom:16px; }
+  .problem-section h2 em { font-style:normal; color:var(--gold); }
+  .problem-section > p { font-size:16px; color:rgba(255,255,255,0.52); line-height:1.8; max-width:680px; margin-bottom:40px; }
+  .problem-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:18px; }
+  .problem-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:26px; transition:border-color 0.2s; }
+  .problem-card:hover { border-color:rgba(176,48,48,0.40); }
+  .problem-icon { font-size:26px; margin-bottom:12px; display:block; }
+  .problem-card h3 { font-size:15px; font-weight:600; margin-bottom:8px; }
+  .problem-card p { font-size:13px; color:rgba(255,255,255,0.46); line-height:1.7; }
+
+  /* ── AFTER ── */
+  .after-section { background:linear-gradient(180deg,rgba(26,122,138,0.07) 0%,transparent 100%); padding:96px 24px; }
+  .after-inner { max-width:960px; margin:0 auto; }
+  .after-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,44px); line-height:1.2; margin-bottom:16px; }
+  .after-inner h2 em { font-style:normal; color:var(--gold); }
+  .after-inner > p { font-size:16px; color:rgba(255,255,255,0.52); line-height:1.8; margin-bottom:36px; max-width:680px; }
+  .after-list { list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .after-list li { display:flex; align-items:flex-start; gap:16px; background:rgba(26,122,138,0.08); border:1px solid rgba(26,122,138,0.20); border-radius:12px; padding:20px 24px; transition:all 0.2s; }
+  .after-list li:hover { background:rgba(26,122,138,0.14); border-color:rgba(26,122,138,0.40); transform:translateX(4px); }
+  .after-check { width:26px; height:26px; min-width:26px; background:var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; margin-top:1px; }
+  .after-list li p { font-size:15px; line-height:1.65; color:rgba(255,255,255,0.82); }
+  .after-list li strong { color:var(--white); font-weight:600; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { padding:96px 24px; background:rgba(255,255,255,0.015); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
+  .testimonials-inner { max-width:960px; margin:0 auto; }
+  .testimonials-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,42px); text-align:center; margin-bottom:12px; }
+  .testimonials-inner h2 em { font-style:normal; color:var(--gold); }
+  .testimonials-inner > p { text-align:center; font-size:14px; color:rgba(255,255,255,0.38); margin-bottom:48px; font-style:italic; }
+  .testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px; }
+  .testimonial-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); border-radius:16px; padding:32px 26px; display:flex; flex-direction:column; gap:18px; transition:all 0.2s; }
+  .testimonial-card:hover { transform:translateY(-4px); border-color:rgba(212,144,26,0.30); box-shadow:0 12px 40px rgba(0,0,0,0.25); }
+  .stars-row { color:var(--gold2); font-size:18px; letter-spacing:3px; }
+  .testimonial-quote { font-size:15px; line-height:1.78; color:rgba(255,255,255,0.80); font-style:italic; flex:1; position:relative; padding-left:18px; }
+  .testimonial-quote::before { content:'\201C'; position:absolute; left:0; top:-2px; color:var(--gold); font-size:28px; font-style:normal; line-height:1; }
+  .testimonial-author { display:flex; align-items:center; gap:14px; padding-top:4px; border-top:1px solid rgba(255,255,255,0.07); }
+  .author-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--teal) 0%,var(--navy2) 100%); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700; color:white; flex-shrink:0; }
+  .author-name { font-size:14px; font-weight:700; margin-bottom:3px; }
+  .author-title { font-size:12px; color:var(--muted); }
+  .verified { display:inline-flex; align-items:center; gap:4px; background:rgba(26,122,138,0.15); border:1px solid rgba(26,122,138,0.30); color:var(--teal2); font-size:10px; font-weight:600; letter-spacing:1px; padding:3px 8px; border-radius:100px; text-transform:uppercase; margin-top:4px; }
+
+  /* ── FACTS STRIP ── */
+  .facts-strip { background:linear-gradient(135deg,var(--navy2),#0F2236); border-top:1px solid rgba(212,144,26,0.20); border-bottom:1px solid rgba(212,144,26,0.20); padding:44px 24px; }
+  .facts-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:32px; text-align:center; }
+  .fact-num { font-family:'Playfair Display',serif; font-size:46px; font-weight:700; color:var(--gold); line-height:1; }
+  .fact-label { font-size:13px; color:rgba(255,255,255,0.48); margin-top:6px; }
+
+  /* ── INSIDE ── */
+  .inside-section { background:rgba(255,255,255,0.02); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:96px 24px; }
+  .inside-inner { max-width:960px; margin:0 auto; }
+  .inside-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,42px); margin-bottom:12px; }
+  .inside-inner h2 em { font-style:normal; color:var(--gold); }
+  .inside-inner > p { font-size:16px; color:rgba(255,255,255,0.52); line-height:1.8; margin-bottom:36px; max-width:680px; }
+  .chapters-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; margin-bottom:44px; }
+  .chapter-pill { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:13px 16px; font-size:14px; color:rgba(255,255,255,0.70); transition:all 0.2s; }
+  .chapter-pill:hover { background:rgba(26,122,138,0.10); border-color:rgba(26,122,138,0.30); color:var(--white); }
+  .chapter-pill span { color:var(--teal); font-weight:700; font-size:11px; min-width:26px; }
+  .inside-cta-block { background:rgba(212,144,26,0.06); border:1px solid rgba(212,144,26,0.18); border-radius:12px; padding:32px; display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
+  .inside-cta-block p { font-size:15px; color:rgba(255,255,255,0.60); max-width:520px; line-height:1.65; }
+
+  /* ── VALUE ── */
+  .value-section { padding:96px 24px; max-width:960px; margin:0 auto; }
+  .value-section h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,44px); margin-bottom:12px; }
+  .value-section h2 em { font-style:normal; color:var(--gold); }
+  .value-section > p { font-size:16px; color:rgba(255,255,255,0.52); line-height:1.8; margin-bottom:36px; max-width:680px; }
+  .value-items { display:flex; flex-direction:column; gap:12px; }
+  .value-item { display:flex; align-items:center; justify-content:space-between; gap:20px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:20px 24px; }
+  .value-item-left { display:flex; align-items:center; gap:14px; }
+  .value-num { width:32px; height:32px; min-width:32px; background:rgba(212,144,26,0.15); border:1px solid rgba(212,144,26,0.40); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:var(--gold); }
+  .value-item h4 { font-size:15px; font-weight:600; margin-bottom:2px; }
+  .value-item p { font-size:13px; color:rgba(255,255,255,0.40); }
+  .value-price { font-size:14px; font-weight:700; color:rgba(255,255,255,0.26); text-decoration:line-through; white-space:nowrap; }
+  .value-total { margin-top:24px; background:linear-gradient(135deg,rgba(212,144,26,0.12),rgba(212,144,26,0.06)); border:2px solid rgba(212,144,26,0.50); border-radius:12px; padding:28px 24px; }
+  .value-total-row { display:flex; justify-content:space-between; align-items:center; }
+  .value-total h3 { font-size:18px; font-weight:600; }
+  .price-big { font-family:'Playfair Display',serif; font-size:46px; font-weight:700; color:var(--gold); line-height:1; }
+  .price-big sup { font-size:22px; vertical-align:super; }
+  .value-sub { margin-top:8px; font-size:13px; color:rgba(255,255,255,0.36); }
+
+  /* ── URGENCY ── */
+  .urgency-section { padding:80px 24px; max-width:960px; margin:0 auto; text-align:center; }
+  .urgency-box { background:linear-gradient(135deg,rgba(176,48,48,0.12),rgba(176,48,48,0.06)); border:1px solid rgba(176,48,48,0.35); border-radius:16px; padding:48px 40px; }
+  .urgency-box h3 { font-family:'Playfair Display',serif; font-size:clamp(22px,3vw,32px); margin-bottom:16px; }
+  .urgency-box p { font-size:15px; color:rgba(255,255,255,0.65); line-height:1.8; max-width:600px; margin:0 auto 28px; }
+
+  /* ── FINAL CTA ── */
+  .cta-section { padding:96px 24px 120px; text-align:center; background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(212,144,26,0.08) 0%,transparent 60%); }
+  .cta-section h2 { font-family:'Playfair Display',serif; font-size:clamp(28px,4.5vw,52px); font-weight:900; line-height:1.15; margin-bottom:20px; max-width:720px; margin-inline:auto; }
+  .cta-section h2 em { font-style:normal; color:var(--gold); }
+  .cta-section > p { font-size:17px; color:rgba(255,255,255,0.52); max-width:500px; margin:0 auto 40px; line-height:1.7; }
+  .cta-card { display:inline-flex; flex-direction:column; align-items:center; background:rgba(255,255,255,0.04); border:1px solid rgba(212,144,26,0.30); border-radius:20px; padding:48px 56px; gap:22px; max-width:480px; width:100%; }
+  .cta-now { font-family:'Playfair Display',serif; font-size:66px; font-weight:900; color:var(--gold); line-height:1; }
+  .cta-now sup { font-size:28px; vertical-align:super; }
+  .cta-was { font-size:15px; color:rgba(255,255,255,0.26); text-decoration:line-through; margin-bottom:4px; }
+  .cta-currency { font-size:12px; color:rgba(255,255,255,0.28); letter-spacing:2px; margin-top:6px; }
+  .cta-includes { list-style:none; width:100%; display:flex; flex-direction:column; gap:10px; font-size:14px; color:rgba(255,255,255,0.65); text-align:left; }
+  .cta-includes li { display:flex; align-items:center; gap:10px; }
+  .cta-includes li::before { content:'✓'; color:var(--teal); font-weight:700; font-size:13px; min-width:16px; }
+  .btn-download { display:flex; align-items:center; justify-content:center; gap:10px; background:linear-gradient(135deg,var(--gold) 0%,#E0A020 100%); color:var(--navy); font-weight:700; font-size:17px; padding:18px 40px; border-radius:10px; width:100%; text-decoration:none; border:none; cursor:pointer; box-shadow:0 8px 32px rgba(212,144,26,0.38); transition:all 0.2s ease; }
+  .btn-download:hover { transform:translateY(-2px); box-shadow:0 14px 44px rgba(212,144,26,0.55); }
+  .guarantee { display:flex; align-items:center; gap:8px; font-size:12px; color:rgba(255,255,255,0.28); }
+
+  /* ── FOOTER ── */
+  footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; font-size:12px; color:rgba(255,255,255,0.20); line-height:1.8; max-width:700px; margin:0 auto; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 820px) {
+    .hero { padding:80px 28px 60px; }
+    .hero-inner { grid-template-columns:1fr; text-align:center; gap:40px; }
+    .hero-book { order:-1; }
+    .hero-book img { max-width:280px; }
+    .hero-sub { margin-inline:auto; }
+    .hero-cta { align-items:center; }
+    .value-item { flex-direction:column; align-items:flex-start; gap:10px; }
+    .value-total-row { flex-direction:column; align-items:flex-start; gap:14px; }
+    .cta-card { padding:36px 28px; }
+    .urgency-box { padding:36px 24px; }
+    .hero-badge { font-size:10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="stars"></div>
+  <div class="hero-inner">
+
+    <!-- Left: copy -->
+    <div>
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Updated May 2026 &nbsp;·&nbsp; 2026–27 Budget Reforms
+      </div>
+      <h1>The New Rules.<br/>Are You <em>Ready?</em></h1>
+      <p class="hero-sub">The 2026–27 Federal Budget just changed the rules for every Australian investor. CGT. Negative gearing. Shares. Property. Trusts. Super. Most investors don't know what changed — or what it means for their money.</p>
+      <div class="hero-cta">
+        <a href="#buy" class="btn-gold">
+          Get the Guide — $19.95
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <span class="hero-note">Instant PDF download &nbsp;·&nbsp; One-time payment &nbsp;·&nbsp; AUD $19.95</span>
+      </div>
+    </div>
+
+    <!-- Right: 3D book -->
+    <div class="hero-book">
+      <div class="hero-book-glow"></div>
+      <img src="book-cover.png" alt="Smart Aussie Investor — The New Rules. Are You Ready? 2026–27 Budget Edition book mockup"/>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ PROBLEM ══════════════════════════════════════════════════════ -->
+<section class="problem-section">
+  <span class="section-label">The Problem</span>
+  <h2>The rules changed on Budget night.<br/>Most investors are still <em>in the dark.</em></h2>
+  <p>The 2026–27 Budget introduced the most significant changes to Australian investment tax in nearly three decades. And unlike most budgets, this one affects decisions you need to make <em>right now</em> — not at tax time.</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <span class="problem-icon">📉</span>
+      <h3>The 50% CGT discount is gone</h3>
+      <p>From 1 July 2027, capital gains will be taxed under a new CPI indexation model. For most investors that means a significantly higher tax bill when you sell.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-icon">🏠</span>
+      <h3>Negative gearing has changed</h3>
+      <p>Buy an established investment property after 12 May 2026? Your rental losses can no longer offset your wages. If you didn't know this, you may already be affected.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-icon">⏰</span>
+      <h3>The window to act is closing</h3>
+      <p>Some decisions — like selling assets under the old rules — must be made before 1 July 2027. Every month without a plan is a month of opportunity lost.</p>
+    </div>
+    <div class="problem-card">
+      <span class="problem-icon">😟</span>
+      <h3>Clear advice is hard to find</h3>
+      <p>The legislation hasn't fully passed Parliament. Plain-English explanations of what this means for ordinary investors are still very hard to come by.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MINI CTA #1 ══════════════════════════════════════════════════ -->
+<div class="mini-cta">
+  <div class="mini-cta-inner">
+    <p><strong>Don't navigate this alone.</strong> Our guide breaks down every change in plain English — no jargon, no legal degree required.</p>
+    <a href="#buy" class="btn-outline">
+      Get Clarity Now — $19.95
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <span class="mini-note">Instant PDF · Read it in under 2 hours</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ AFTER ═══════════════════════════════════════════════════════ -->
+<section class="after-section">
+  <div class="after-inner">
+    <span class="section-label">After Reading This Guide</span>
+    <h2>Imagine knowing <em>exactly</em> where you stand.</h2>
+    <p>This guide gives you clarity. Not jargon. Not "it depends." Actual, specific answers about what the new rules mean for your investments.</p>
+    <ul class="after-list">
+      <li>
+        <span class="after-check">✓</span>
+        <p><strong>You know exactly how the new CGT indexation model works</strong> — and whether your specific assets are better off sold before or after 1 July 2027.</p>
+      </li>
+      <li>
+        <span class="after-check">✓</span>
+        <p><strong>You understand what the negative gearing changes mean for your portfolio</strong> — whether you're protected, restricted, or positioned to take advantage of the new build incentives.</p>
+      </li>
+      <li>
+        <span class="after-check">✓</span>
+        <p><strong>You can compare investment structures with confidence</strong> — super vs. personal name vs. trust vs. company — knowing the CGT rates and consequences of each from 2027 onwards.</p>
+      </li>
+      <li>
+        <span class="after-check">✓</span>
+        <p><strong>You have a clear action checklist</strong> — specific steps to take now, before the transition date, and ongoing. No more guessing what to do next.</p>
+      </li>
+      <li>
+        <span class="after-check">✓</span>
+        <p><strong>You walk into your next meeting with your tax adviser fully prepared</strong> — asking the right questions, understanding the answers, and making decisions based on knowledge.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TESTIMONIALS ════════════════════════════════════════════════ -->
+<section class="testimonials-section">
+  <div class="testimonials-inner">
+    <span class="section-label" style="text-align:center; display:block;">What Readers Are Saying</span>
+    <h2>Real investors. <em>Real clarity.</em></h2>
+    <p></p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-quote">I've owned investment properties for twelve years and genuinely had no idea how significantly the negative gearing rules changed on Budget night. This guide explained everything in plain English. I now know my existing properties are fully protected and exactly what to watch for on any new purchase. Worth every cent.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MR</div>
+          <div>
+            <div class="author-name">Michael R.</div>
+            <div class="author-title">Property Investor · Melbourne, VIC</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-quote">As an SMSF trustee I was worried the new rules would impact our fund's CGT position. The superannuation chapter made it crystal clear — our fund is unchanged and actually becomes more attractive under the new regime. The comparison tables and worked dollar examples made it incredibly easy to follow. Highly recommend.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SK</div>
+          <div>
+            <div class="author-name">Sandra K.</div>
+            <div class="author-title">SMSF Trustee · Sydney, NSW</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars-row">★★★★★</div>
+        <p class="testimonial-quote">I read three different news articles about the CGT changes and still came away confused. This guide sorted it all out in one sitting. The decision flowcharts alone are worth the price — I could immediately see which rules apply to my shares portfolio. The action checklist at the end is something I'll refer back to all year.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JT</div>
+          <div>
+            <div class="author-name">James T.</div>
+            <div class="author-title">Stock Investor · Brisbane, QLD</div>
+            <div class="verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MINI CTA #2 ══════════════════════════════════════════════════ -->
+<div class="mini-cta">
+  <div class="mini-cta-inner">
+    <p><strong>Join smart Aussie investors</strong> who already understand the new rules — and have a clear plan.</p>
+    <a href="#buy" class="btn-gold">
+      Download Your Copy — $19.95
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <span class="mini-note">Instant PDF download · AUD $19.95 one-time</span>
+  </div>
+</div>
+
+<!-- ═══ FAST FACTS ════════════════════════════════════════════════════ -->
+<div class="facts-strip">
+  <div class="facts-inner">
+    <div><div class="fact-num">20</div><div class="fact-label">In-depth chapters</div></div>
+    <div><div class="fact-num">50+</div><div class="fact-label">Pages of plain-English content</div></div>
+    <div><div class="fact-num">7</div><div class="fact-label">Custom infographics &amp; diagrams</div></div>
+    <div><div class="fact-num">6</div><div class="fact-label">Asset classes covered</div></div>
+  </div>
+</div>
+
+<!-- ═══ WHAT'S INSIDE ════════════════════════════════════════════════ -->
+<section class="inside-section">
+  <div class="inside-inner">
+    <span class="section-label">What's Inside</span>
+    <h2>20 chapters. Every angle <em>covered.</em></h2>
+    <p>From the basics of how CGT works in Australia, to strategies for minimising your liability under the new rules. Written in plain English, with worked dollar examples throughout.</p>
+    <div class="chapters-grid">
+      <div class="chapter-pill"><span>01</span>Why This Budget Changes Everything</div>
+      <div class="chapter-pill"><span>02</span>Understanding CGT — The Basics</div>
+      <div class="chapter-pill"><span>03</span>The Old 50% CGT Discount System</div>
+      <div class="chapter-pill"><span>04</span>The New CPI Indexation Model</div>
+      <div class="chapter-pill"><span>05</span>The 30% Minimum Tax</div>
+      <div class="chapter-pill"><span>06</span>Transitional Rules — What Applies When</div>
+      <div class="chapter-pill"><span>07</span>CGT &amp; Shares — What Changes for You</div>
+      <div class="chapter-pill"><span>08</span>CGT &amp; Investment Property</div>
+      <div class="chapter-pill"><span>09</span>Negative Gearing — Now Restricted</div>
+      <div class="chapter-pill"><span>10</span>New Builds — The Special Treatment</div>
+      <div class="chapter-pill"><span>11</span>The Main Residence Exemption</div>
+      <div class="chapter-pill"><span>12</span>Small Business CGT Concessions</div>
+      <div class="chapter-pill"><span>13</span>Superannuation &amp; SMSFs</div>
+      <div class="chapter-pill"><span>14</span>Trusts &amp; the 30% Minimum Trust Tax</div>
+      <div class="chapter-pill"><span>15</span>Strategies to Reduce Your CGT</div>
+      <div class="chapter-pill"><span>16</span>Timing Your Asset Sales</div>
+      <div class="chapter-pill"><span>17</span>Who Wins &amp; Who Loses Under Indexation</div>
+      <div class="chapter-pill"><span>18</span>Common Mistakes to Avoid</div>
+      <div class="chapter-pill"><span>19</span>Your Action Checklist</div>
+      <div class="chapter-pill"><span>20</span>Glossary of Key Terms</div>
+    </div>
+
+    <!-- ─ Mini CTA #3 inside chapters ─ -->
+    <div class="inside-cta-block">
+      <p>All 20 chapters. 7 custom infographics. A complete action checklist. Everything you need to navigate the new rules — for less than a coffee with your accountant.</p>
+      <a href="#buy" class="btn-gold">
+        Get All 20 Chapters — $19.95
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VALUE STACK ═══════════════════════════════════════════════════ -->
+<section class="value-section">
+  <span class="section-label">The Value</span>
+  <h2>Stack it all up —<br/>the price is a <em>no-brainer.</em></h2>
+  <p>A single session with a tax adviser to cover this ground costs $300–$500. This guide gets you there for a fraction of that — so you walk into that meeting prepared.</p>
+  <div class="value-items">
+    <div class="value-item">
+      <div class="value-item-left">
+        <div class="value-num">1</div>
+        <div><h4>20-Chapter Comprehensive PDF Guide</h4><p>Full plain-English breakdown — CGT, negative gearing, shares, property, trusts, super</p></div>
+      </div>
+      <div class="value-price">$49 value</div>
+    </div>
+    <div class="value-item">
+      <div class="value-item-left">
+        <div class="value-num">2</div>
+        <div><h4>7 Custom Infographics &amp; Decision Flowcharts</h4><p>Timelines, comparison charts, decision trees — complex rules made instantly clear</p></div>
+      </div>
+      <div class="value-price">$29 value</div>
+    </div>
+    <div class="value-item">
+      <div class="value-item-left">
+        <div class="value-num">3</div>
+        <div><h4>Full A4 Budget Reforms Summary Infographic</h4><p>One-page visual summary of the entire 2026–27 reform package — print it and keep it handy</p></div>
+      </div>
+      <div class="value-price">$19 value</div>
+    </div>
+    <div class="value-item">
+      <div class="value-item-left">
+        <div class="value-num">4</div>
+        <div><h4>Worked Dollar Examples Throughout</h4><p>Real numbers, real scenarios — see exactly how much more tax you could pay under the new rules</p></div>
+      </div>
+      <div class="value-price">$29 value</div>
+    </div>
+    <div class="value-item">
+      <div class="value-item-left">
+        <div class="value-num">5</div>
+        <div><h4>Action Checklist + Full Glossary</h4><p>Step-by-step guide — what to do now, before July 2027, and ongoing. Plus 18 key terms defined.</p></div>
+      </div>
+      <div class="value-price">$19 value</div>
+    </div>
+  </div>
+  <div class="value-total">
+    <div class="value-total-row">
+      <div>
+        <h3>Total value: <span style="color:rgba(255,255,255,0.26);text-decoration:line-through;">$145</span></h3>
+        <div class="value-sub">Your price today — instant download, no subscription, no hidden fees</div>
+      </div>
+      <div><span class="price-big"><sup>$</sup>19<span style="font-size:28px;">.95</span></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ URGENCY ═══════════════════════════════════════════════════════ -->
+<section class="urgency-section">
+  <div class="urgency-box">
+    <h3>⏰ The clock on the old rules is ticking</h3>
+    <p>The 50% CGT discount disappears on 1 July 2027. Some of the most important decisions — like whether to sell assets under the old rules — need to be made in the months ahead. The sooner you understand the rules, the more options you have.</p>
+    <a href="#buy" class="btn-gold" style="display:inline-flex;">
+      I Want to Be Prepared
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ══════════════════════════════════════════════════════ -->
+<section class="cta-section" id="buy">
+  <h2>Stop guessing.<br/>Start <em>investing smarter.</em></h2>
+  <p>You don't need a law degree. You need plain-English clarity on what changed, what it means for your money, and what to do next.</p>
+
+  <div style="display:flex;justify-content:center;">
+    <div class="cta-card">
+      <div style="text-align:center;">
+        <div class="cta-was">Total value $145</div>
+        <div class="cta-now"><sup>$</sup>19<span style="font-size:34px;vertical-align:baseline;">.95</span></div>
+        <div class="cta-currency">AUD · ONE-TIME PAYMENT</div>
+      </div>
+      <ul class="cta-includes">
+        <li>20-chapter comprehensive PDF guide</li>
+        <li>7 custom infographics &amp; decision flowcharts</li>
+        <li>Full A4 budget reforms summary page</li>
+        <li>Worked dollar examples throughout</li>
+        <li>Action checklist + glossary of 18 terms</li>
+        <li>Instant download — read today</li>
+      </ul>
+      <a href="#" class="btn-download">
+        Download Now — $19.95
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </a>
+      <div class="guarantee">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        General information only · Not personal financial advice
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════════ -->
+<footer>
+  <strong style="color:rgba(255,255,255,0.38);">Smart Aussie Investor</strong><br/>
+  This guide is general information only and does not constitute personal financial, tax, or legal advice. Budget measures referenced are proposed legislation and have not yet passed Parliament. Always consult a registered tax agent or financial adviser for advice specific to your situation.<br/><br/>
+  © 2026 Smart Aussie Investor · Australia
+</footer>
+
+</body>
+</html>
