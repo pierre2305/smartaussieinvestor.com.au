@@ -31,6 +31,12 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="The complete plain-English guide to Australia's 2026–27 Budget reforms. CGT changes, negative gearing, shares, property, super and trusts. $19.95 instant PDF download."/>
+<meta property="og:title" content="The New Rules. Are You Ready? — Smart Aussie Investor"/>
+<meta property="og:description" content="The complete plain-English guide to Australia's 2026–27 Budget reforms. $19.95 instant PDF download."/>
+<meta property="og:image" content="https://smartaussieinvestor.com.au/book-cover.png"/>
+<meta property="og:url" content="https://smartaussieinvestor.com.au"/>
+<meta property="og:type" content="website"/>
 <title>Smart Aussie Investor — The New Rules. Are You Ready?</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
@@ -248,6 +254,34 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
   .btn-download:hover { transform:translateY(-2px); box-shadow:0 14px 44px rgba(212,144,26,0.55); }
   .guarantee { display:flex; align-items:center; gap:8px; font-size:12px; color:rgba(255,255,255,0.28); }
 
+
+  /* ── PAYMENT BADGES ── */
+  .payment-badges {
+    display:flex; flex-direction:column; align-items:center; gap:10px; width:100%;
+  }
+  .payment-badges-row {
+    display:flex; align-items:center; justify-content:center;
+    flex-wrap:wrap; gap:8px;
+  }
+  .pay-badge {
+    background:white; border-radius:5px; padding:4px 8px;
+    display:flex; align-items:center; justify-content:center;
+    height:28px; min-width:44px;
+  }
+  .pay-badge svg { display:block; }
+  .secure-line {
+    display:flex; align-items:center; gap:6px;
+    font-size:11px; color:rgba(255,255,255,0.35); letter-spacing:0.3px;
+  }
+  .secure-line svg { opacity:0.5; }
+
+  /* ── STICKY SECURE LINE ── */
+  .sticky-secure {
+    display:flex; align-items:center; gap:5px;
+    font-size:11px; color:rgba(255,255,255,0.38); white-space:nowrap;
+  }
+  .sticky-secure svg { opacity:0.5; flex-shrink:0; }
+  @media (max-width:600px) { .sticky-secure { display:none; } }
   /* ── FOOTER ── */
   footer { border-top:1px solid rgba(255,255,255,0.06); padding:32px 24px; text-align:center; font-size:12px; color:rgba(255,255,255,0.20); line-height:1.8; max-width:700px; margin:0 auto; }
 
@@ -265,9 +299,122 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
     .urgency-box { padding:36px 24px; }
     .hero-badge { font-size:10px; }
   }
+
+  /* ── TRUST BADGES ── */
+  .trust-strip { background:rgba(255,255,255,0.02); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:28px 24px; }
+  .trust-inner { max-width:960px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:28px 48px; }
+  .trust-badge { display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(255,255,255,0.52); font-weight:500; }
+  .trust-badge svg { opacity:0.7; flex-shrink:0; }
+  .trust-badge span { white-space:nowrap; }
+
+  /* ── PREVIEW / SNEAK PEEK ── */
+  .preview-section { padding:96px 24px; background:linear-gradient(180deg,rgba(26,122,138,0.05) 0%,transparent 100%); }
+  .preview-inner { max-width:960px; margin:0 auto; }
+  .preview-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,42px); margin-bottom:12px; }
+  .preview-inner h2 em { font-style:normal; color:var(--gold); }
+  .preview-inner > p { font-size:16px; color:rgba(255,255,255,0.52); line-height:1.8; margin-bottom:44px; max-width:680px; }
+  .preview-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; margin-bottom:40px; }
+  .preview-card {
+    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.10);
+    border-radius:12px; overflow:hidden; transition:all 0.2s;
+    display:flex; flex-direction:column;
+  }
+  .preview-card:hover { transform:translateY(-4px); border-color:rgba(212,144,26,0.35); box-shadow:0 16px 48px rgba(0,0,0,0.35); }
+  .preview-img-placeholder {
+    width:100%; aspect-ratio:4/3; background:rgba(255,255,255,0.03);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:12px; padding:24px; text-align:center;
+  }
+  .preview-img-placeholder svg { opacity:0.25; }
+  .preview-img-placeholder .placeholder-text { font-size:13px; color:rgba(255,255,255,0.30); line-height:1.5; }
+  .preview-img-placeholder .placeholder-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(212,144,26,0.50); }
+  .preview-card-body { padding:18px 20px; }
+  .preview-card-body h4 { font-size:14px; font-weight:700; margin-bottom:5px; color:var(--white); }
+  .preview-card-body p { font-size:13px; color:rgba(255,255,255,0.45); line-height:1.6; }
+
+  /* ── FAQ ── */
+  .faq-section { padding:96px 24px; }
+  .faq-inner { max-width:760px; margin:0 auto; }
+  .faq-inner h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,42px); margin-bottom:12px; }
+  .faq-inner h2 em { font-style:normal; color:var(--gold); }
+  .faq-inner > p { font-size:16px; color:rgba(255,255,255,0.52); line-height:1.8; margin-bottom:44px; }
+  .faq-list { display:flex; flex-direction:column; gap:12px; }
+  .faq-item { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; transition:border-color 0.2s; }
+  .faq-item:hover { border-color:rgba(212,144,26,0.25); }
+  .faq-question {
+    width:100%; background:none; border:none; color:var(--white);
+    font-family:'DM Sans',sans-serif; font-size:16px; font-weight:600;
+    text-align:left; padding:22px 24px; cursor:pointer;
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+    transition:color 0.2s;
+  }
+  .faq-question:hover { color:var(--gold2); }
+  .faq-question .faq-icon { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:rgba(212,144,26,0.15); border:1px solid rgba(212,144,26,0.30); display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--gold); transition:all 0.25s; }
+  .faq-item.open .faq-question .faq-icon { background:rgba(212,144,26,0.25); transform:rotate(45deg); }
+  .faq-item.open .faq-question { color:var(--gold2); }
+  .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.25s; }
+  .faq-item.open .faq-answer { max-height:400px; }
+  .faq-answer-inner { padding:0 24px 22px; font-size:15px; color:rgba(255,255,255,0.62); line-height:1.75; border-top:1px solid rgba(255,255,255,0.06); padding-top:18px; }
+  .faq-answer-inner strong { color:rgba(255,255,255,0.85); }
+
+  /* ── STICKY CTA BAR ── */
+  .sticky-bar {
+    position:fixed; bottom:0; left:0; right:0; z-index:999;
+    background:linear-gradient(135deg,#0A1824 0%,#0F2236 100%);
+    border-top:2px solid var(--gold);
+    padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    box-shadow:0 -4px 32px rgba(0,0,0,0.5);
+    transform:translateY(100%);
+    transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .sticky-bar.visible { transform:translateY(0); }
+  .sticky-bar-left { display:flex; align-items:center; gap:14px; }
+  .sticky-bar-title { font-size:15px; font-weight:700; color:var(--white); line-height:1.2; }
+  .sticky-bar-price { font-size:13px; color:rgba(255,255,255,0.45); }
+  .sticky-bar-book { width:36px; height:46px; object-fit:cover; border-radius:3px; box-shadow:0 2px 8px rgba(0,0,0,0.5); flex-shrink:0; }
+  .sticky-bar-btn {
+    flex-shrink:0; background:linear-gradient(135deg,var(--gold),#E8A830);
+    color:var(--navy); font-weight:700; font-size:15px;
+    padding:12px 28px; border-radius:8px; border:none;
+    text-decoration:none; cursor:pointer; white-space:nowrap;
+    box-shadow:0 4px 16px rgba(212,144,26,0.40);
+    transition:all 0.2s;
+  }
+  .sticky-bar-btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(212,144,26,0.55); }
+  .sticky-bar-close { background:none; border:none; color:rgba(255,255,255,0.30); cursor:pointer; font-size:20px; padding:4px 8px; flex-shrink:0; transition:color 0.2s; }
+  .sticky-bar-close:hover { color:rgba(255,255,255,0.65); }
+  @media (max-width:600px) {
+    .sticky-bar { flex-wrap:wrap; gap:10px; padding:12px 16px; }
+    .sticky-bar-book { display:none; }
+    .sticky-bar-left { flex:1; min-width:0; }
+    .sticky-bar-title { font-size:13px; }
+    .sticky-bar-btn { font-size:13px; padding:10px 18px; }
+  }
 </style>
 </head>
 <body>
+
+<!-- ═══ STICKY CTA BAR ═══════════════════════════════════════════════ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-left">
+    <img src="book-cover.png" alt="Guide" class="sticky-bar-book"/>
+    <div>
+      <div class="sticky-bar-title">The New Rules. Are You Ready?</div>
+      <div class="sticky-bar-price">$19.95 AUD &nbsp;·&nbsp; Instant PDF Download</div>
+    </div>
+  </div>
+  <a href="https://payhip.com/b/3HKFt" class="sticky-bar-btn payhip-buy-button" data-theme="none" data-product="3HKFt">
+    Get It Now →
+  </a>
+  <div class="sticky-secure">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Secure checkout
+  </div>
+  <button class="sticky-bar-close" id="stickyClose" aria-label="Close">×</button>
+</div>
+
 
 <!-- ═══ HERO ════════════════════════════════════════════════════════ -->
 <section class="hero">
@@ -299,6 +446,38 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
 
   </div>
 </section>
+
+
+<!-- ═══ TRUST BADGES ════════════════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4901A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span>Secure Checkout</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4901A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span>Instant Download After Payment</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4901A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span>PDF — Works on All Devices</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4901A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>Read in Under 2 Hours</span>
+    </div>
+    <div class="trust-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4901A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Updated May 2026</span>
+    </div>
+    <div class="trust-badge">
+      <!-- Australian flag colours as small dot row -->
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect width="20" height="14" rx="2" fill="#00008B"/><rect y="5" width="20" height="4" fill="white"/><rect x="8" width="4" height="14" fill="white"/><rect y="6" width="20" height="2" fill="#CC0000"/><rect x="9" width="2" height="14" fill="#CC0000"/></svg>
+      <span>Made in Australia</span>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ PROBLEM ══════════════════════════════════════════════════════ -->
 <section class="problem-section">
@@ -490,6 +669,52 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
   </div>
 </section>
 
+
+<!-- ═══ SNEAK PEEK ══════════════════════════════════════════════════ -->
+<section class="preview-section">
+  <div class="preview-inner">
+    <span class="section-label">Inside the Guide</span>
+    <h2>See what you're <em>getting.</em></h2>
+    <p>A preview of the content, infographics and worked examples inside the guide. Replace these placeholders with actual screenshots from the PDF.</p>
+
+    <div class="preview-grid">
+
+      <div class="preview-card">
+        <img src="sample-page-1.jpg" alt="Working Dollar Example" style="width:100%;"/>
+        <div class="preview-card-body">
+          <h4>CGT Decision Flowchart</h4>
+          <p>Step-by-step visual showing exactly which CGT rules apply when you sell any asset.</p>
+        </div>
+      </div>
+
+      <div class="preview-card">
+        <img src="sample-page-2.jpg" alt="Working Dollar Example" style="width:100%;"/>
+        <div class="preview-card-body">
+          <h4>Worked Dollar Example</h4>
+          <p>Real numbers showing exactly how much more tax you'd pay under the new indexation rules.</p>
+        </div>
+      </div>
+      <div class="preview-card">
+        <img src="sample-page-3.jpg" alt="Working Dollar Example" style="width:100%;"/>
+        <div class="preview-card-body">
+          <h4>Action Checklist</h4>
+          <p>Exactly what to do now, before 1 July 2027, and ongoing — no more guessing.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <a href="#buy" class="btn-gold">
+        Get the Full Guide — $19.95
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ═══ VALUE STACK ═══════════════════════════════════════════════════ -->
 <section class="value-section">
   <span class="section-label">The Value</span>
@@ -545,6 +770,92 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
 
 <div class="divider"></div>
 
+
+<!-- ═══ FAQ ══════════════════════════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <span class="section-label">Common Questions</span>
+    <h2>Got questions? <em>We've got answers.</em></h2>
+    <p>Everything you need to know before deciding if this guide is right for you.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is this relevant if I only own shares — not property?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — the CGT changes apply to <strong>all investment assets</strong>, not just property. Chapters 7, 15, 16 and 17 cover shares, ETFs and crypto specifically, including how the new indexation model and 30% minimum tax affect share investors and what strategies still work.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is this up to date with the latest Budget announcements?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — the guide was written and finalised in May 2026, directly following the 2026–27 Federal Budget announcement on 12 May 2026. It reflects all current proposals as announced, including the CGT indexation changes, negative gearing restrictions, 30% minimum tax, and trust reforms.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will this tell me exactly what to do with my specific situation?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The guide covers every common investor scenario in detail — property, shares, SMSFs, trusts, small business, and more. However it is <strong>general information</strong>, not personal financial advice. Its purpose is to give you a thorough understanding of the new rules so that when you do speak to a registered tax agent, you are fully informed and can have a much more productive conversation.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does it take to read?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most readers finish it in <strong>one to two hours</strong> cover to cover. The guide is written to be read straight through, but each chapter also stands alone — so if you only care about property, or only about shares, you can jump straight to those chapters and get everything you need in under 30 minutes.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What format is it? How do I access it after purchase?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The guide is a <strong>PDF file</strong> — it works on any device including your phone, tablet, laptop or desktop. Immediately after payment you'll receive an email with a secure download link. You can also download it directly from the confirmation page. No app required, no subscription, no expiry — it's yours to keep.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do the changes affect my family home?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner"><strong>No</strong> — the main residence CGT exemption has not been changed by the 2026–27 Budget. If your principal place of residence qualifies for the main residence exemption, any capital gain on its sale remains fully exempt. The reforms are targeted at investment assets, not owner-occupied homes. Chapter 11 covers this in full.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if the legislation doesn't pass Parliament?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The guide clearly notes that the measures are <strong>proposed legislation</strong> that must pass Parliament before becoming law. However the negative gearing cut-off date of 12 May 2026 has already been established and the political direction is clear. Understanding the proposals now gives you time to plan — whether the rules pass as announced, are modified, or are delayed, you'll be far better positioned than investors who wait.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ═══ URGENCY ═══════════════════════════════════════════════════════ -->
 <section class="urgency-section">
   <div class="urgency-box">
@@ -581,9 +892,59 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
         Download Now — $19.95
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </a>
-      <div class="guarantee">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        General information only · Not personal financial advice
+      <!-- Payment methods + secure checkout -->
+      <div class="payment-badges">
+        <div class="payment-badges-row">
+          <!-- Visa -->
+          <div class="pay-badge" title="Visa">
+            <svg width="44" height="14" viewBox="0 0 44 14" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="11" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#1A1F71" letter-spacing="-0.5">VISA</text>
+            </svg>
+          </div>
+          <!-- Mastercard -->
+          <div class="pay-badge" title="Mastercard">
+            <svg width="36" height="22" viewBox="0 0 36 22" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="13" cy="11" r="10" fill="#EB001B"/>
+              <circle cx="23" cy="11" r="10" fill="#F79E1B"/>
+              <path d="M18 4.8a10 10 0 0 1 0 12.4A10 10 0 0 1 18 4.8z" fill="#FF5F00"/>
+            </svg>
+          </div>
+          <!-- Amex -->
+          <div class="pay-badge" title="American Express" style="background:#2557D6;">
+            <svg width="40" height="14" viewBox="0 0 40 14" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="11" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="white" letter-spacing="0.3">AMEX</text>
+            </svg>
+          </div>
+          <!-- PayPal -->
+          <div class="pay-badge" title="PayPal">
+            <svg width="50" height="14" viewBox="0 0 50 14" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="11" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#003087">Pay</text>
+              <text x="21" y="11" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#009CDE">Pal</text>
+            </svg>
+          </div>
+          <!-- Apple Pay -->
+          <div class="pay-badge" title="Apple Pay" style="background:#000;">
+            <svg width="44" height="18" viewBox="0 0 44 18" xmlns="http://www.w3.org/2000/svg">
+              <text x="2" y="13" font-family="Arial,sans-serif" font-size="8" font-weight="600" fill="white" letter-spacing="0.2">Apple Pay</text>
+            </svg>
+          </div>
+          <!-- Google Pay -->
+          <div class="pay-badge" title="Google Pay">
+            <svg width="50" height="18" viewBox="0 0 50 18" xmlns="http://www.w3.org/2000/svg">
+              <text x="1" y="13" font-family="Arial,sans-serif" font-size="8" font-weight="600" fill="#3C4043" letter-spacing="0.2">Google Pay</text>
+            </svg>
+          </div>
+        </div>
+        <!-- Secure checkout line -->
+        <div class="secure-line">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Secure checkout &nbsp;·&nbsp; Encrypted payment &nbsp;·&nbsp; Powered by Payhip &amp; Stripe
+        </div>
+        <!-- Disclaimer -->
+        <div class="guarantee" style="margin-top:2px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          General information only · Not personal financial advice
+        </div>
       </div>
     </div>
   </div>
@@ -596,5 +957,37 @@ src="https://www.facebook.com/tr?id=982225640965526&ev=PageView&noscript=1"
   © 2026 Smart Aussie Investor · Australia
 </footer>
 
+
+<script>
+  // ── Sticky bar ──────────────────────────────────────────────────
+  const stickyBar = document.getElementById('stickyBar');
+  const stickyClose = document.getElementById('stickyClose');
+  let barDismissed = false;
+
+  window.addEventListener('scroll', () => {
+    if (barDismissed) return;
+    const scrolled = window.scrollY;
+    const pageH = document.body.scrollHeight - window.innerHeight;
+    // Show after scrolling 30% of page
+    if (scrolled > pageH * 0.30) {
+      stickyBar.classList.add('visible');
+    }
+  });
+
+  stickyClose.addEventListener('click', () => {
+    stickyBar.classList.remove('visible');
+    barDismissed = true;
+  });
+
+  // ── FAQ accordion ────────────────────────────────────────────────
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    // Open clicked if it wasn't open
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 </body>
 </html>
